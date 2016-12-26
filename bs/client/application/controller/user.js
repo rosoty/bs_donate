@@ -50,11 +50,13 @@ Template.useredit.events({
 Template.signin.events({
 	"click #btn-signin":function(e){
 		e.preventDefault();
+
 		var email = $("[name='email']").val();
 		var password = $("[name='password']").val();
-		var user = Meteor.user();
-		var roles = user.roles[0];
-		console.log("roles== "+user.roles[0]);
+		//var user = Meteor.user();
+		//var roles = user.roles[0];
+		//alert('login'+email+password);
+		//console.log("roles== "+user.roles[0]);
 		Meteor.loginWithPassword(email, password, function(res){
 		    if(!res){	    	
 			    Router.go('/cpanel/dashboad');		    	
