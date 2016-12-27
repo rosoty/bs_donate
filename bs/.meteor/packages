@@ -28,3 +28,7 @@ cfs:standard-packages
 cfs:filesystem
 session
 mrt:fs
+meteorhacks:npm
+
+
+npm-container

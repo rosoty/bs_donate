@@ -1,4 +1,7 @@
 section = new Mongo.Collection('section');
+categories = new Mongo.Collection('categories');
+products = new Mongo.Collection('products');
+shops = new Mongo.Collection('shops');
 users =  Meteor.users;
 
 fullpath="/public/upload";
