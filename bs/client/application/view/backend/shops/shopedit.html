@@ -1,0 +1,43 @@
+<template name="shopedit">
+	<div id="content-wrapper">
+	    <form  class="panel form-horizontal form-bordered">
+			    <div class="panel-heading">
+			        <span class="panel-title">SHOP</span>
+			    </div>
+			    <div class="panel-body">
+
+			        <div class="row form-group">
+			                        <label class="col-sm-2 control-label">Name:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" value="{{getOneShop.name}}" id="name" class="form-control">
+			            </div>
+			        </div>
+			       
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">Owner Name:</label>
+			            <div class="col-sm-10 ">
+			            	<input required type="text" id="ownername" value="{{getOneShop.ownername}}" class="form-control">
+			            </div>
+			        </div>
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">Phone:</label>
+			            <div class="col-sm-10 ">
+			            	<input required type="text" id="phone" value="{{getOneShop.phone}}" class="form-control">
+			            </div>
+			        </div>
+			         <input type="hidden" id="shopid" value="{{getOneShop._id}}">
+			           <div class="row form-group">
+			            <label class="col-sm-2 control-label">Address:</label>
+			            <div class="col-sm-10 ">
+			            	<textarea id="address" value="{{getOneShop.address}}" rows="5" cols="100"></textarea>
+			            </div>
+			        </div>
+			       	 
+			    </div>
+		    <div class="panel-footer text-right">
+		        <button class="btn btn-primary" id="btnupdateshop">UPDATE SHOP</button>
+		    </div>
+		</form>
+    </div>
+    <div id="main-menu-bg"></div>
+</template>
