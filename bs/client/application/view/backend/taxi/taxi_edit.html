@@ -1,0 +1,38 @@
+<template name="taxiedit">
+	<div id="content-wrapper">
+			    <div class="panel-heading">
+			        <span class="panel-title">TAXI_FORM</span>
+			    </div>
+			    <div class="panel-body">
+			    <input type="hidden" name="id" value="{{GetOne._id}}">
+			        <div class="row form-group">
+			                        <label class="col-sm-2 control-label">NAME:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" name="name" value="{{GetOne.name}}" class="form-control">
+			            </div>
+			        </div>
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">PHONE:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" name="phone" value="{{GetOne.phone}}" class="form-control">
+			            </div>
+			        </div>
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">DIRECTION:</label>
+			            <div class="col-sm-10">
+			            	<select class="form-control" name="direction">
+			            		<option  value="{{GetOne.direction}}" style="display:none">			<p class="text-uppercase">{{GetOne.direction}}</p>
+			            		</option>
+			            		<option value="kompongchnang">KOMPONG CHNANG</option>
+			            		<option value="kompongcham">KOMPONG CHAM</option>
+			            		<option value="batdambang">BATDAMBANG</option>
+			            	</select>
+			            </div>
+			        </div>
+			    </div>
+		    <div class="panel-footer text-right">
+		        <button class="btn btn-primary" id="btn-update">UPDATE</button>
+		    </div>
+    </div>
+    <div id="main-menu-bg"></div>
+</template>

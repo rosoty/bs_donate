@@ -1,6 +1,4 @@
-Template.section.rendered = function(){
-	Meteor.subscribe('section');
-};
+
 Template.sectionadd.events({
 	"click #btn-save": function(e){
 		e.preventDefault();

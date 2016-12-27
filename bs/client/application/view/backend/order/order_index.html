@@ -1,0 +1,56 @@
+<template name="orders">
+	<div id="content-wrapper">
+        <div class="panel-body">
+		    <div class="row">
+		        <div class="col-sm-12">
+
+		            <div class="table-light">
+		                <div class="table-header">
+		                    <div class="table-caption">
+		                        ORDERS LIST
+		                    </div>
+		                </div>
+		                <table class="table table-bordered">
+		                  	<thead>
+		                   <tr>
+		                        {{#with getFirstObject}}
+		                        	{{#each getKeys this}}
+		                        		<th>{{this}}</th>
+		                        	{{/each}}
+		                        {{/with}}
+		                       
+		                       
+		                    </tr>
+		                    </thead>
+		                    <tbody>
+		                    	{{#each GetOrders}}
+		                            <tr>
+		                                
+		                             {{#each getKeys this}}
+		                             	<td>{{getValue this ..}}</td>
+		                             {{/each}}
+		                                
+		                            </tr>
+		                        {{/each}}
+		                    </tbody>
+		                </table>
+
+		                <div class="table-footer clearfix">
+		                    <div class="DT-label">
+		                        <div class="dataTables_info" id="jq-datatables-example_info" role="alert" aria-live="polite"
+		                             aria-relevant="all">Showing 1 to 5 of 5 entries
+		                        </div>
+		                    </div>
+		                    <div class="DT-pagination">
+		                        <div class="dataTables_paginate paging_simple_numbers" id="jq-datatables-example_paginate">
+		                            <ul class="pagination"> </ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>    
+	</div>
+    <div id="main-menu-bg"></div>
+</template>

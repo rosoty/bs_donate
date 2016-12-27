@@ -45,3 +45,52 @@ Router.route('/cpanel/user/edit/:id',{
 		return {GetOne:result};
 	}
 });
+
+Router.route('/cpanel/orders',{
+	layoutTemplate: 'mainLayout',
+	name:'orders'
+});
+Router.route('/cpanel/orders/edit/:id',{
+	layoutTemplate: 'mainLayout',
+	name:'editorders',
+	data:function(){
+		var id = this.params.id;
+		var result = orders.findOne({'_id':id});
+		return {GetOne:result};
+	}
+});
+Router.route('/cpanel/taxi',{
+	layoutTemplate: 'mainLayout',
+	name:'taxi'
+});
+Router.route('/cpanel/taxi/add',{
+	layoutTemplate: 'mainLayout',
+	name:'addtaxi'
+});
+Router.route('/cpanel/taxi/edit/:id',{
+	layoutTemplate: 'mainLayout',
+	name:'taxiedit',
+	data:function(){
+		var id = this.params.id;
+		var result = taxi.findOne({'_id':id});
+		return {GetOne:result};
+	}
+});
+
+Router.route('/cpanel/pshop',{
+	layoutTemplate: 'mainLayout',
+	name:'pshop'
+});
+Router.route('/cpanel/pshop/add',{
+	layoutTemplate: 'mainLayout',
+	name:'addpshop'
+});
+Router.route('/cpanel/pshop/edit/:id',{
+	layoutTemplate: 'mainLayout',
+	name:'editpshop',
+	data:function(){
+		var id = this.params.id;
+		var result = pshop.findOne({'_id':id});
+		return {GetOne:result};
+	}
+});

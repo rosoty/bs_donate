@@ -1,4 +1,4 @@
-<template name="section">
+<template name="pshop">
 	<div id="content-wrapper">
         <div class="panel-body">
 		    <div class="row">
@@ -7,42 +7,34 @@
 		            <div class="table-light">
 		                <div class="table-header">
 		                    <div class="table-caption">
-		                        SECTION LIST
+		                        PROVINCE SHOP LIST
 		                    </div>
 		                </div>
 		                <table class="table table-bordered">
-		                  a  <thead>
+		                  	<thead>
 		                    <tr>
 		                        <th style="width: 130px;">
-		                        	<a class="btn btn-xs btn-labeled btn-success" href="/cpanel/section/add"><span class="btn-label icon fa fa-plus-square"></span>Add</a>
+		                        	<a class="btn btn-xs btn-labeled btn-success" href="/cpanel/pshop/add"><span class="btn-label icon fa fa-plus-square"></span>Add</a>
 		                        </th>
-		                        <th>Titile</th>
-		                        <th>Sub_Title</th>
-		                        <th style="width: 100px;">Image</th>
-		                        <th style="width: 100px;">Action</th>
+		                        <th>Name</th>
+		                        <th>FB Name</th>
+		                        <th>Address</th>
+		                        <th>Phone</th>
 		                    </tr>
 		                    </thead>
 		                    <tbody>
-		                    	{{#each Getsection}}
+		                    	{{#each GetPshop}}
 		                            <tr>
 		                                <td>
-		                                    <a class="btn btn-xs btn-labeled btn-success" href="/cpanel/section/edit/{{_id}}"><span
+		                                    <a class="btn btn-xs btn-labeled btn-success" href="/cpanel/pshop/edit/{{_id}}"><span
 		                                            class="btn-label icon fa fa-edit"></span>U</a>
 		                                    <a  class="btn btn-xs btn-labeled btn-danger btn-del" href="#"><span
 		                                            class="btn-label icon fa fa-minus-square"></span>D</a>
 		                                </td>
-		                                <td>{{title}}</td>
-		                                <td>{{subtitle}}</td>
-		                                <td><img src="{{getImageurl image}}" height="50"> </td>
-		                                <td>
-		                                	{{#if Ispandding status}}
-		                                	<a  class="btn btn-xs btn-pandding btn-outline-secondary" href="#"><span
-		                                            class="btn-label icon fa fa-minus-circle"></span> pandding...</a>
-		                                	{{else}}
-		                                		<a  class="btn btn-xs btn-active btn-outline-success btn-success" href="#"><span
-		                                            class="btn-label icon fa fa-check-square"></span> Active</a>
-		                                	{{/if}}
-		                                </td>
+		                                <td>{{name}}</td>
+		                                <td>{{fbname}}</td>
+		                                <td>{{phone}}</td>
+		                                <td>{{address}}</td>
 		                            </tr>
 		                        {{/each}}
 		                    </tbody>

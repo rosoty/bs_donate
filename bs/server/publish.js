@@ -8,3 +8,14 @@ Meteor.publish("users", function () {
 Meteor.publish('images', function (){ 
   return images.find({});
 });
+
+Meteor.publish('orders', function (){ 
+  return orders.find({});
+});
+
+Meteor.publish('taxi', function (){ 
+  return taxi.find({});
+});
+Meteor.publish('pshop', function (){ 
+  return pshop.find({});
+});

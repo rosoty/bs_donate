@@ -1,0 +1,13 @@
+Meteor.methods({
+	InsertTaxi:function(obj){
+		taxi.insert(obj);
+	},
+	RemoveTaxi:function(id){
+		taxi.remove({'_id':id});
+	},
+	UpdateTaxi:function(id,obj){
+		if(id){
+			 taxi.update({'_id':id},{$set:obj});
+		}
+	}
+});

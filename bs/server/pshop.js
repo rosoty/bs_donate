@@ -1,0 +1,13 @@
+Meteor.methods({
+	InsertPshop:function(obj){
+		pshop.insert(obj);
+	},
+	RemovePshop:function(id){
+		pshop.remove({'_id':id});
+	},
+	UpdatePshop:function(id,obj){
+		if(id){
+			 pshop.update({'_id':id},{$set:obj});
+		}
+	}
+});
