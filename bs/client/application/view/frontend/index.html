@@ -1,16 +1,9 @@
 <template name="homefront">
-    {{#each GetSection}}
-        <header  class="carousel slide" style="height: 600px">
-            <div class="carousel-inner" >
-                <div class="item active">
-                    <div class="fill" style="background-image:url('{{getImageurl image}}');"></div>
-                    <div class="carousel-caption" style="margin-bottom: 80px;text-align: left">
-                        <p class="pText" style="font-size: 2em">{{title}}</p>
-                        <p class="pText">{{subtitle}} </p>
-                        <p class="pText">{{getHumanDate updatedAt}}</p>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                <h1 class="text-center">Welcome Homepage</h1>
             </div>
-        </header>
-    {{/each}}
+        </div>
+    </div>
 </template>

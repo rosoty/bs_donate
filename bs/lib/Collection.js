@@ -1,4 +1,3 @@
-section = new Mongo.Collection('section');
 categories = new Mongo.Collection('categories');
 products = new Mongo.Collection('products');
 shops = new Mongo.Collection('shops');
@@ -6,6 +5,9 @@ users =  Meteor.users;
 orders =  new Mongo.Collection('orders');
 taxi =  new Mongo.Collection('taxi');
 pshop =  new Mongo.Collection('pshop');
+orderstatus =  new Mongo.Collection('status');
+
+
 fullpath="/public/upload";
 
 
@@ -29,3 +31,5 @@ images = new FS.Collection("images", {
 	//stores: [new FS.Store.FileSystem("images", {path:"/opt/safir/app/uploads"})]
     stores: [new FS.Store.FileSystem("images", {path:base_path+"/uploads"})]
 });
+
+

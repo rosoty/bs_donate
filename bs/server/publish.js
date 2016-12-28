@@ -1,6 +1,4 @@
-Meteor.publish("section", function () {
-    return section.find();
-});
+
 Meteor.publish("users", function () {
     return users.find();
 });
@@ -37,4 +35,7 @@ Meteor.publish('allshop', function (){
 });
 Meteor.publish("oneshop",function(id){
 	return shops.find({_id:id});
+});
+Meteor.publish("orderstatus",function(){
+	return orderstatus.find({});
 });

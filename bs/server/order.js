@@ -7,13 +7,7 @@ Meteor.methods({
 			 orders.update({'_id':id},{$set:obj});
 		}
 	},
-	UpdateOrderStatus:function(id,status){
-		var result = "";var one = 1; var zero = 0;
-		if(status == 0){
-			result = orders.update({'_id':id},{$set:{'status':one}});
-		}else{
-			result = orders.update({'_id':id},{$set:{'status':zero}});
-		}
-		return result;
-	},
+	UpdateOrderStatus:function(id,next){
+		orders.update({'_id':id},{$set:{'status':next}});
+	}
 });
