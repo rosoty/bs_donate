@@ -9,5 +9,16 @@ Meteor.methods({
 	},
 	UpdateOrderStatus:function(id,next){
 		orders.update({'_id':id},{$set:{'status':next}});
+	},
+	countOrder:function(){
+		var allorder=orders.find({});
+		return allorder.count();
 	}
 });
+/*=======
+	UpdateOrderStatus:function(id,next){
+		orders.update({'_id':id},{$set:{'status':next}});
+	}
+});
+>>>>>>> 8dc505429328342303cd12f719fa0b8d57b82249
+*/

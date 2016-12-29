@@ -124,7 +124,17 @@ Router.route('/cpanel/user/edit/:id',{
 
 Router.route('/cpanel/orders',{
 	layoutTemplate: 'mainLayout',
-	name:'orders'
+	name:'orders',
+	waitOn:function(){
+		//var p=this.params.id;
+		Session.set('CATEGORYDATA', {page:1});
+	},
+	onBeforeAction: function(){
+         var pagination = IRLibLoader.load('/js/jquery.simplePagination.js');
+        if( pagination.ready() ){
+            this.next();
+        }
+    }
 });
 Router.route('/cpanel/orders/edit/:id',{
 	layoutTemplate: 'mainLayout',
