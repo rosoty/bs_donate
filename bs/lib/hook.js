@@ -25,7 +25,10 @@ Router.onBeforeAction(IR_BeforeHooks.checkMember, {
 	except: [  
 		'dashboad',
 		'orders',
-		'editorders'
+		'editorders',
+		'info',
+		'addinfo',
+		'editinfo'
 	]
 	//except: ['admin','categories','login','register','projectlist','search','project','tage'] 
 });
