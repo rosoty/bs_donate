@@ -39,3 +39,6 @@ Meteor.publish("oneshop",function(id){
 Meteor.publish("orderstatus",function(){
 	return orderstatus.find({});
 });
+Meteor.publish("info",function(){
+	return info.find({});
+});

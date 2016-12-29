@@ -1,6 +1,6 @@
 <template name="mainLayout">	
 	<div id="main-wrapper"> 
-		{{#if isInRole 'admin'}}
+		{{#if currentUser}}
 	    	{{>navbar}}
 	    	{{>menu}}
 			{{>yield}}

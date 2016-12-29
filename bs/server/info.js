@@ -1,0 +1,11 @@
+Meteor.methods({
+	InsertInfo:function(obj){
+		info.insert(obj);
+	},
+	RemoveInfo:function(id){
+		info.remove({'_id':id});
+	},
+	UpdateInfo:function(id,obj){
+		info.update({'_id':id},{$set:obj});
+	}
+});

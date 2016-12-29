@@ -10,42 +10,45 @@
                 <li class="mm-dropdown open active">
                     <a><i class="menu-icon fa fa-files-o"></i><span class="mm-text">ADMIN_PAGES</span></a> 
                     <ul>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/dashboad"><span class="mm-text">DASHBOAD</span></a>
-                        </li>
-                        <!-- <li >
-                            <a tabindex="-1" href="/cpanel/post"><span class="mm-text">POST</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/section"><span class="mm-text">CATEGORIES</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/section"><span class="mm-text">PAGE</span></a>
-                        </li> -->
-                        <li >
-                            <a tabindex="-1" href="/cpanel/orders"><span class="mm-text">ORDERS</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/pshop"><span class="mm-text">P-SHOP</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/taxi"><span class="mm-text">TAXI</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/user"><span class="mm-text">USERS</span></a>
-                        </li>
-                         <li >
-                            <a tabindex="-1" href="/cpanel/category"><span class="mm-text">CATEGORY</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/shop"><span class="mm-text">SHOP</span></a>
-                        </li>
-                        <li >
-                            <a tabindex="-1" href="/cpanel/product"><span class="mm-text">PRODUCTS</span></a>
-                        </li>
-                         <li >
-                            <a tabindex="-1" href="/cpanel/status"><span class="mm-text">STATUS</span></a>
-                        </li>
+                        {{#if isInRole 'member'}}
+                            <li >
+                                <a tabindex="-1" href="/cpanel/dashboad"><span class="mm-text">DASHBOAD</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/orders"><span class="mm-text">ORDERS</span></a>
+                            </li>
+                        {{else}}
+                            <li >
+                                <a tabindex="-1" href="/cpanel/dashboad"><span class="mm-text">DASHBOAD</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/orders"><span class="mm-text">ORDERS</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/pshop"><span class="mm-text">P-SHOP</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/taxi"><span class="mm-text">TAXI</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/user"><span class="mm-text">USERS</span></a>
+                            </li>
+                             <li >
+                                <a tabindex="-1" href="/cpanel/category"><span class="mm-text">CATEGORY</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/shop"><span class="mm-text">SHOP</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/product"><span class="mm-text">PRODUCTS</span></a>
+                            </li>
+                             <li >
+                                <a tabindex="-1" href="/cpanel/status"><span class="mm-text">STATUS</span></a>
+                            </li>
+                            <li >
+                                <a tabindex="-1" href="/cpanel/info"><span class="mm-text">INFO</span></a>
+                            </li>
+                        {{/if}}
                     </ul>
                 </li>
             </ul> <!-- / .navigation -->

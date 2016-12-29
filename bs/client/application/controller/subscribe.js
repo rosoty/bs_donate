@@ -5,3 +5,4 @@ Meteor.subscribe('images');
 Meteor.subscribe('taxi');
 Meteor.subscribe('pshop');
 Meteor.subscribe('orderstatus');
+Meteor.subscribe('info');

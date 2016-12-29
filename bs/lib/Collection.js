@@ -6,7 +6,7 @@ orders =  new Mongo.Collection('orders');
 taxi =  new Mongo.Collection('taxi');
 pshop =  new Mongo.Collection('pshop');
 orderstatus =  new Mongo.Collection('status');
-
+info =  new Mongo.Collection('info');
 
 fullpath="/public/upload";
 

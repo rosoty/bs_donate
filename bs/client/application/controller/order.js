@@ -1,4 +1,4 @@
-Template.orders.rendered = function(){	
+Template.orders.onCreated(function () {
  	$('#mytable tr th').each(function(i) {
         //select all tds in this column
         var tds = $(this).parents('table')
@@ -10,7 +10,7 @@ Template.orders.rendered = function(){
             tds.hide();
         } 
     });  
-}
+});
 
 Template.orders.helpers({
 	GetOrders:function(){
@@ -68,11 +68,9 @@ Template.orders.events({
 		data.forEach(function(row){
 			arr.push(row.value);
 		});
-		console.log(arr);
 		if(this.status == undefined){item = arr.slice(-1)[0];}
 		else{item = this.status;}
 		var next = arr[($.inArray(item, arr) + 1) % arr.length];
-		console.log("next== "+next);
 		// var prev = arr[($.inArray(item, arr) - 1 + arr.length) % arr.length];
 		Meteor.call('UpdateOrderStatus', this._id, next, function(error){
 			if(!error){

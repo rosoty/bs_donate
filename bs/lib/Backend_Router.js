@@ -178,3 +178,21 @@ Router.route('/cpanel/status/add',{
 	layoutTemplate: 'mainLayout',
 	name:'addstatus'
 });
+
+Router.route('/cpanel/info',{
+	layoutTemplate: 'mainLayout',
+	name:'info'
+});
+Router.route('/cpanel/info/add',{
+	layoutTemplate: 'mainLayout',
+	name:'addinfo'
+});
+Router.route('/cpanel/info/edit/:id',{
+	layoutTemplate: 'mainLayout',
+	name:'editinfo',
+	data:function(){
+		var id = this.params.id;
+		var result = info.findOne({'_id':id});
+		return {GetOne:result};
+	}
+});
