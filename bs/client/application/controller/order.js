@@ -1,10 +1,24 @@
-
+Template.orders.onCreated(function bodyOnCreated() {
+    Tracker.autorun(function() {
+    	var getpage=Session.get("CATEGORYDATA")
+    	 var page = getpage.page;
+    	 var limit=4;
+    	Meteor.subscribe("myOrder",page,limit)
+    	Meteor.call('countOrder', function(err, count){
+                if(!err){
+                    //Session.set('TOTALPRODUCTS', count);
+                    $('#pagination').pagination({ items: count, itemsOnPage: limit, currentPage:page, hrefTextPrefix:'/cpanel/orders/', cssStyle: 'light-theme' });
+                   
+                }
+            })
+    });
+});
 
 Template.orders.helpers({
 	GetOrders:function(){
 		return orders.find();
 	},
-	getKeys: function(obj){
+	getKeys: function(ordersbj){
 		return Session.get('keys');
 	},
 	getValue: function(namefield,obj){

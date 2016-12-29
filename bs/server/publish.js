@@ -9,8 +9,18 @@ Meteor.publish('images', function (){
   return images.find({});
 });
 
-Meteor.publish('orders', function (){ 
+/*Meteor.publish('orders', function (){ 
   return orders.find({});
+
+});*/
+
+Meteor.publish("myOrder",function(page,limit){
+    //var limit = 4;
+    var limit=parseInt(limit);
+    page = (page)? page:1;
+    var skip = (page<=1)? 0 : (page - 1) * limit;
+    //limit = limit * page;
+    return orders.find({},{limit:limit, skip:skip})
 });
 
 Meteor.publish('taxi', function (){ 

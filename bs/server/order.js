@@ -16,4 +16,8 @@ Meteor.methods({
 		}
 		return result;
 	},
+	countOrder:function(){
+		var allorder=orders.find({});
+		return allorder.count();
+	}
 });

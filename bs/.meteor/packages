@@ -29,6 +29,6 @@ cfs:filesystem
 session
 mrt:fs
 meteorhacks:npm
-
-
+manuelschoebel:wait-on-lib
+mrt:external-file-loader
 npm-container
