@@ -5,8 +5,26 @@
 			    </div>
 			    <div class="panel-body">
 			    <input type="hidden" name="id" value="{{GetOne._id}}">
+			    	<div class="row form-group">
+			            <label class="col-sm-2 control-label">USER:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" name="user" value="{{GetOne.user}}" class="form-control">
+			            </div>
+			        </div>
 			        <div class="row form-group">
-			                        <label class="col-sm-2 control-label">PRODUCT:</label>
+			            <label class="col-sm-2 control-label">PHONE:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" name="phone" value="{{GetOne.phone}}" class="form-control">
+			            </div>
+			        </div>
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">IMAGE:</label>
+			            <div class="col-sm-10">
+			                <input required type="text" name="image" value="{{GetOne.image}}" class="form-control">
+			            </div>
+			        </div>
+			        <div class="row form-group">
+			            <label class="col-sm-2 control-label">PRODUCT:</label>
 			            <div class="col-sm-10">
 			                <input required type="text" name="product" value="{{GetOne.product}}" class="form-control">
 			            </div>
@@ -45,8 +63,12 @@
 			            <label class="col-sm-2 control-label">STATUS:</label>
 			            <div class="col-sm-10">
 			            	<select class="form-control" name="status">
-			            		<option value="1">Public</option>
-			            		<option value="0">Unpublic</option>
+			            		{{#if GetOne.status}}
+			            			<option value="{{GetOne.status}}">{{GetOne.status}}</option>
+			            		{{/if}}
+			            		{{#each Getstatus}}
+			            			<option value="{{value}}">{{value}}</option>
+			            		{{/each}}
 			            	</select>
 			            </div>
 			        </div>

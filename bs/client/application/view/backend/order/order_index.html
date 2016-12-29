@@ -23,7 +23,7 @@
 		                        	{{/each}}
 		                        {{/with}}
 		                        <th>Status</th>
-		                       
+		                       <th>Action</th>
 		                    </tr>
 		                    </thead>
 		                    <tbody>
@@ -43,6 +43,15 @@
 		                                	<span class="btn-label icon fa fa-edit"></span>{{#if status}}{{status}}
 		                                	{{else}}change{{/if}}
 		                                	</a>
+		                                </td>
+		                                <td>
+		                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+		                                    <a class="btn btn-xs btn-labeled btn-success" href="/cpanel/orders/edit/{{_id}}"><span
+		                                            class="btn-label icon fa fa-edit"></span>U</a></div>
+		                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+		                                    	<a  class="btn btn-xs btn-labeled btn-danger btn-del" href="#"><span
+		                                            class="btn-label icon fa fa-minus-square"></span>D</a>
+		                                    </div>
 		                                </td>
 		                            </tr>
 		                        {{/each}}

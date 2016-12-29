@@ -110,11 +110,17 @@ Template.editorders.helpers({
 	},
 	GetTaxi:function(){
 		return taxi.find();
+	},
+	Getstatus:function(){
+		return orderstatus.find();
 	}
 });
 Template.editorders.events({
 	'click #btn-update':function(e){
 		e.preventDefault();
+		var user = $("[name='user']").val();
+		var phone = $("[name='phone']").val();
+		var image = $("[name='image']").val();
 		var qty = $("[name='qty']").val();
 		var product = $("[name='product']").val();
 		var pshop = $("[name='pshop']").val();
@@ -123,15 +129,17 @@ Template.editorders.events({
 		var status = $("[name='status']").val();
 		var id = $("[name='id']").val();
 		var obj = {
+			user:user,
+			phone:phone,
+			image:image,
 			qty:qty,
 			product:product,
 			pshop:pshop,
 			taxi:taxi,
 			deleverytype:deleverytype,
-			status:status,
-			updatedAt:Date.now()
+			status:status
 		}
-		alert(obj);
+		//alert(obj);
 		Meteor.call("UpdateOrders",id,obj, function(res){
 			if(!res){
 				Router.go('/cpanel/orders');
@@ -139,25 +147,3 @@ Template.editorders.events({
 		});
 	}
 });
-// Template.editorders.events({
-// 	"click #btn-update": function(e){
-// 		e.preventDefault();
-// 		var id = $("[name='id']").val();
-// 		var name = $("[name='name']").val();
-// 		var fbname = $("[name='fb-name']").val();
-// 		var phone = $("[name='phone']").val();
-// 		var address = $("[name='address']").val();
-// 		var obj = {
-// 			name:name,
-// 			fbname:fbname,
-// 			phone:phone,
-// 			address:address,
-// 			updatedAt: Date.now()
-// 		}
-// 		Meteor.call("UpdateOrder",id,obj, function(res){
-// 			if(!res){
-// 				Router.go('/cpanel/order');
-// 			}
-// 		});
-// 	}
-// });
