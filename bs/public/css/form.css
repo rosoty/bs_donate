@@ -179,4 +179,7 @@ body
     padding: 10px;
     left: 45%;
 }
+th:empty, tr:empty, td:empty {
+  display: none;
+}
 

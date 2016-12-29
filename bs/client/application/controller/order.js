@@ -14,20 +14,6 @@ Template.orders.onCreated(function bodyOnCreated() {
     });
 });
 
-Template.orders.rendered = function(){	
- 	$('#mytable tr th').each(function(i) {
-        //select all tds in this column
-        var tds = $(this).parents('table')
-            .find('tr td:nth-child(' + (i + 1) + ')');
-        if(tds.is(':empty')) {
-            //hide header
-            $(this).hide();
-            //hide cells
-            tds.hide();
-        } 
-    });  
-};
-
 
 Template.orders.helpers({
 	GetOrders:function(){
