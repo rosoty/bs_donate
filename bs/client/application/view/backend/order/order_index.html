@@ -10,26 +10,40 @@
 		                        ORDERS LIST
 		                    </div>
 		                </div>
-		                <table class="table table-bordered">
+		                <table class="table table-bordered" id="mytable">
 		                  	<thead>
 		                   <tr>
+		                   		<th>No</th>
+		                   		<th>User</th>
+		                       	<th>Taxi</th>
+		                       	<th>Image</th>
 		                        {{#with getFirstObject}}
 		                        	{{#each getKeys this}}
 		                        		<th>{{this}}</th>
 		                        	{{/each}}
 		                        {{/with}}
-		                       
+		                        <th>Status</th>
 		                       
 		                    </tr>
 		                    </thead>
 		                    <tbody>
 		                    	{{#each GetOrders}}
-		                            <tr>
-		                                
-		                             {{#each getKeys this}}
-		                             	<td>{{getValue this ..}}</td>
-		                             {{/each}}
-		                                
+		                            <tr> 
+		                            	<td>{{index}}</td>
+		                            	<td>{{getUsername user}}</td>
+		                            	<td>{{getTaxiname taxi}}</td>
+		                            	{{#if image}}
+		                            		<td>{{image}}</td>
+		                            	{{/if}}
+			                             {{#each getKeys this}}
+			                             	<td>{{getValue this ..}}</td>
+			                             {{/each}}
+		                                <td>
+		                                	<a class="btn btn-md btn-labeled btn-success" href="#" id="btn-status">
+		                                	<span class="btn-label icon fa fa-edit"></span>{{#if status}}{{status}}
+		                                	{{else}}change{{/if}}
+		                                	</a>
+		                                </td>
 		                            </tr>
 		                        {{/each}}
 		                    </tbody>

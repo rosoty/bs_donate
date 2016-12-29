@@ -7,17 +7,18 @@ Meteor.methods({
 			 orders.update({'_id':id},{$set:obj});
 		}
 	},
-	UpdateOrderStatus:function(id,status){
-		var result = "";var one = 1; var zero = 0;
-		if(status == 0){
-			result = orders.update({'_id':id},{$set:{'status':one}});
-		}else{
-			result = orders.update({'_id':id},{$set:{'status':zero}});
-		}
-		return result;
+	UpdateOrderStatus:function(id,next){
+		orders.update({'_id':id},{$set:{'status':next}});
 	},
 	countOrder:function(){
 		var allorder=orders.find({});
 		return allorder.count();
 	}
 });
+/*=======
+	UpdateOrderStatus:function(id,next){
+		orders.update({'_id':id},{$set:{'status':next}});
+	}
+});
+>>>>>>> 8dc505429328342303cd12f719fa0b8d57b82249
+*/

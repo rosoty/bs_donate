@@ -1,3 +1,4 @@
+
 Template.orders.onCreated(function bodyOnCreated() {
     Tracker.autorun(function() {
     	var getpage=Session.get("CATEGORYDATA")
@@ -14,9 +15,28 @@ Template.orders.onCreated(function bodyOnCreated() {
     });
 });
 
+Template.orders.rendered = function(){	
+ 	$('#mytable tr th').each(function(i) {
+        //select all tds in this column
+        var tds = $(this).parents('table')
+            .find('tr td:nth-child(' + (i + 1) + ')');
+        if(tds.is(':empty')) {
+            //hide header
+            $(this).hide();
+            //hide cells
+            tds.hide();
+        } 
+    });  
+}
+
+
 Template.orders.helpers({
 	GetOrders:function(){
-		return orders.find();
+		var result = orders.find({}).map(function(document, index){
+			document.index = index+1;
+			return document;
+		});
+		return result;
 	},
 	getKeys: function(ordersbj){
 		return Session.get('keys');
@@ -24,7 +44,16 @@ Template.orders.helpers({
 	getValue: function(namefield,obj){
 		return obj[namefield];
 	},getFirstObject(){
-		Session.set('keys',Object.keys(orders.findOne({})));
+		var keys=Object.keys(orders.findOne({}));
+		delete keys[keys.indexOf("_id")];
+		delete keys[keys.indexOf("pshop")];
+		delete keys[keys.indexOf("taxi")];
+		delete keys[keys.indexOf("date")];
+		delete keys[keys.indexOf("user")];
+		delete keys[keys.indexOf("status")];
+		delete keys[keys.indexOf("image")];
+		//keys.remove("_id");
+		Session.set('keys',keys);
 		return orders.findOne({});
 	},Ispandding:function(status){
 		if(status == 0){
@@ -50,13 +79,24 @@ Template.orders.events({
 			Meteor.call("RemoveOrder",this._id);
 		}
 	},
-	"click .btn-pandding":function(e){
+	"click #btn-status":function(e){
 		e.preventDefault();
-		Meteor.call("UpdateOrderStatus",this._id,this.status);
-	},
-	"click .btn-active":function(e){
-		e.preventDefault();
-		Meteor.call("UpdateOrderStatus",this._id,this.status); 
+		var arr = [], item;
+		var data = orderstatus.find().fetch();
+		data.forEach(function(row){
+			arr.push(row.value);
+		});
+		console.log(arr);
+		if(this.status == undefined){item = arr.slice(-1)[0];}
+		else{item = this.status;}
+		var next = arr[($.inArray(item, arr) + 1) % arr.length];
+		console.log("next== "+next);
+		// var prev = arr[($.inArray(item, arr) - 1 + arr.length) % arr.length];
+		Meteor.call('UpdateOrderStatus', this._id, next, function(error){
+			if(!error){
+			   console.log('UpdateOrderStatus problem');  
+			}
+		});
 	}
 });
 Template.editorders.helpers({

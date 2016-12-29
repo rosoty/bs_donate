@@ -180,3 +180,11 @@ Router.route('/cpanel/pshop/edit/:id',{
 		return {GetOne:result};
 	}
 });
+Router.route('/cpanel/status',{
+	layoutTemplate: 'mainLayout',
+	name:'status'
+});
+Router.route('/cpanel/status/add',{
+	layoutTemplate: 'mainLayout',
+	name:'addstatus'
+});

@@ -1,3 +1,4 @@
+
 /*if (Meteor.isServer) {
 	var database = new MongoInternals.RemoteCollectionDriver("mongodb://djisse:paela95@ds139278.mlab.com:39278/heroku_3xpfhsv3");
 	MyCollection = new Mongo.Collection("collection_name", { _driver: database });
@@ -7,6 +8,7 @@
 //var connection = DDP.connect("mongodb://djisse:paela95@ds139278.mlab.com:39278/heroku_3xpfhsv3");
 //Cats = Meteor.Collection('cats', {connection: connection});
 section = new Mongo.Collection('section');
+
 categories = new Mongo.Collection('categories');
 products = new Mongo.Collection('products');
 shops = new Mongo.Collection('shops');
@@ -14,6 +16,9 @@ users =  Meteor.users;
 orders =  new Mongo.Collection('orders');
 taxi =  new Mongo.Collection('taxi');
 pshop =  new Mongo.Collection('pshop');
+orderstatus =  new Mongo.Collection('status');
+
+
 fullpath="/public/upload";
 
 
@@ -37,3 +42,5 @@ images = new FS.Collection("images", {
 	//stores: [new FS.Store.FileSystem("images", {path:"/opt/safir/app/uploads"})]
     stores: [new FS.Store.FileSystem("images", {path:base_path+"/uploads"})]
 });
+
+

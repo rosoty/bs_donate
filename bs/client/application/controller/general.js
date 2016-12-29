@@ -24,3 +24,15 @@ Template.registerHelper('getImageurl', function(imageId){
         return;
     }
 });
+Template.registerHelper('getTaxiname', function(taxiId){
+	var nametaxi = taxi.findOne({'_id':taxiId});
+	if(nametaxi){
+		return nametaxi.name;
+	}
+});
+Template.registerHelper('getUsername', function(userId){
+	var username = users.findOne({'_id':userId});
+	if(username){
+		return username.profile.username;
+	}
+});
