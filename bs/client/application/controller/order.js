@@ -27,25 +27,25 @@ Template.orders.helpers({
 		return Session.get('keys');
 	},
 	getValue: function(namefield,obj){
+		console.log('VAL=== ');console.log(namefield);
+		console.log('OBJ== ');console.log(obj);
 		return obj[namefield];
 	},getFirstObject(){
 		var keys=Object.keys(orders.findOne({}));
 		delete keys[keys.indexOf("_id")];
-		delete keys[keys.indexOf("pshop")];
-		delete keys[keys.indexOf("taxi")];
-		delete keys[keys.indexOf("date")];
 		delete keys[keys.indexOf("user")];
-		delete keys[keys.indexOf("status")];
+		delete keys[keys.indexOf("time")];
+		delete keys[keys.indexOf("items")];
+		delete keys[keys.indexOf("location")];
+		delete keys[keys.indexOf("STATUS")];
 		delete keys[keys.indexOf("image")];
 		//keys.remove("_id");
 		Session.set('keys',keys);
 		return orders.findOne({});
-	},Ispandding:function(status){
-		if(status == 0){
-			return true;
-		}else{
-			return false;
-		}
+	},
+	GetLocation:function(lat,longi){
+		var map1 = "https:\/\/maps.googleapis.com\/maps\/api\/staticmap?size=764x400&center="+lat+","+longi+"&zoom=15&markers="+lat+","+longi;
+		return map1;
 	},
 	Getshopname:function(shop){
 		var result = pshop.findOne({'_id':shop}).name;
@@ -71,8 +71,8 @@ Template.orders.events({
 		data.forEach(function(row){
 			arr.push(row.value);
 		});
-		if(this.status == undefined){item = arr.slice(-1)[0];}
-		else{item = this.status;}
+		if(this.STATUS == undefined){item = arr.slice(-1)[0];}
+		else{item = this.STATUS;}
 		var next = arr[($.inArray(item, arr) + 1) % arr.length];
 		// var prev = arr[($.inArray(item, arr) - 1 + arr.length) % arr.length];
 		Meteor.call('UpdateOrderStatus', this._id, next, function(error){

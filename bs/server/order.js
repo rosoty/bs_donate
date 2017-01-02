@@ -8,7 +8,7 @@ Meteor.methods({
 		}
 	},
 	UpdateOrderStatus:function(id,next){
-		orders.update({'_id':id},{$set:{'status':next}});
+		orders.update({'_id':id},{$set:{'STATUS':next}});
 	},
 	countOrder:function(){
 		var allorder=orders.find({});
