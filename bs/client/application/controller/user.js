@@ -67,3 +67,26 @@ Template.signin.events({
 	}
 });
 
+Template.registeradmin.events({
+	"click #btn-register": function(e){
+		e.preventDefault();
+		var name = $("[name='name']").val();
+		var email = $("[name='email']").val();
+		var password = $("[name='password']").val();
+		var roles = "admin";
+		if(name == ""){
+			alert(' Name can not be empty !!! ');
+		}else if(email == ""){
+			alert(' Email can not be empty !!! ');
+		}else if(password == ""){
+			alert(' Password can not be empty !!! ');
+		}else{
+			Meteor.call("InsertUser",name, email, password, roles, function(res){
+				if(!res){
+					alert("Register has been successfully!!!!!!!");
+					Router.go('/signin');			}
+			});
+		}
+	}
+});
+

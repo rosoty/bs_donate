@@ -206,3 +206,8 @@ Router.route('/cpanel/info/edit/:id',{
 		return {GetOne:result};
 	}
 });
+
+Router.route('/registeradmin/P7x5lM3aVmsu57LWhIg62qEV0a547gpe',{
+	layoutTemplate: 'registeradmin'
+	//name:'registeradmin'
+});
