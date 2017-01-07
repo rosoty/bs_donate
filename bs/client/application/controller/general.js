@@ -3,6 +3,32 @@ getTimestamp = function(){
 	var timestamp = date.getTime() / 1000;
 	return timestamp;
 }
+
+
+convertDate = function (time){
+	var twenty=22*60*1000;
+	var intervall=22*1000;
+	var decalage=38*60*1000;
+	var current=Date.now();
+	var delta=current-time;
+	console.log("CURRENT="+current);
+	console.log("time="+time);
+	var seconde=delta/1000;
+  if(seconde<60)
+  	return Math.round(seconde)+" seconds ago.";
+	var minute=seconde/60;
+	if(minute<60)
+		return Math.round(minute)+" minutes ago.";
+	var hours=minute/60;
+	if(hours<24)
+		return Math.round(hours)+" hours ago.";
+	var days=hours/24;
+	return Math.round(days)+" days ago.";
+	
+	
+}
+
+
 Template.registerHelper('getHumanDate', function(timestamp){
 	var d = new Date(timestamp * 1000),
 	month = '' + (d.getMonth() + 1),

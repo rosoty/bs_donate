@@ -54,6 +54,10 @@ Template.orders.helpers({
 	GetTaxiname:function(taxi){
 		var result = taxi.findOne({'_id':taxi}).name;
 		return result;
+	},
+	GettimeAgo:function(time){
+		var result = convertDate(time);
+		return result;
 	}
 });
 
@@ -80,6 +84,23 @@ Template.orders.events({
 			   console.log('UpdateOrderStatus problem');  
 			}
 		});
+	},
+
+	'click .view-item':function(e){
+		e.preventDefault();
+		var html = '';
+		$('#modal-data').empty();
+		var id = this._id;
+		var result = orders.findOne({'_id':id}).items;		
+		result.forEach(function(res){
+			html += '<tr>';
+			  	html += '<td>'+res.TITLE+'</td>';
+			    html += '<td>'+res.EXTRA+'</td>';
+			    html += '<td>'+res.QTY+'</td>';
+			html += '</tr>';
+			
+		});
+		$('#modal-data').append(html);
 	}
 });
 Template.editorders.helpers({
